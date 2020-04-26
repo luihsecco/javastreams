@@ -9,6 +9,8 @@ public class Programa {
 	public static void main(String[] args) {
 		System.out.println("Inicio de Streams");
 		List<Nome> nomes = nomesFrequentes();
+		
+		/*
 		System.out.println("Primeiro " + primeiro(nomes));
 		System.out.println("Total da amostra " + somaFrequencias(nomes));
 		System.out.println("Total da amostra " + somaFrequenciasForEach(nomes));
@@ -27,14 +29,16 @@ public class Programa {
 		System.out.println("Tem mais 0 e menos de 99.999 " + noItervalo(nomes, 0, 99999).size());
 		System.out.println("Frequencia Impar " + frequenciaImpar(nomes).size());
 		System.out.println("Frequencia Par " + frequenciaPar(nomes).size());
+		
+		*/
 
-		System.out.println("ANTES Total " + nomes.size());
-		nomes.remove(new Nome("MARIA",0));
-		System.out.println("DEPOIS Total " + nomes.size());
+		//System.out.println("ANTES Total " + nomes.size());
+		//nomes.remove(new Nome("MARIA",0));
+		//System.out.println("DEPOIS Total " + nomes.size());
 		
-		System.out.println("Contem MARIA " + subString(nomes, "maria"));
+		//System.out.println("Contem MARIA " + subString(nomes, "maria"));
 		
-		System.out.println("Contem ANA " + subString(nomes, "ana"));
+		//System.out.println("Contem ANA " + subString(nomes, "ana"));
 
 		/*
 		System.out.println("\n\n\nEQUALS\n");
@@ -67,7 +71,18 @@ public class Programa {
 		
 		*/
 		
+		System.out.println( noIntervaloS(nomes, 100000, 200000));
+		//System.out.println("Tem mais 100.000 e menos de 200.000 " + noItervalo(nomes, 100000, 200000).size());
+		
+		
 
+	}
+	
+	private static List<Nome>noIntervaloS(List<Nome> nomes, int min, int max)
+	{
+		List<Nome> lista = nomes;
+		lista.stream().filter(x -> x.getFrequencia() >= min && x.getFrequencia() <= max);
+		return lista;
 	}
 
 	private static List<Nome> noItervalo(List<Nome> nomes, int min, int max) {
